@@ -75,7 +75,7 @@ class AdminController extends Controller
         $request->validate([
             'old_password' => 'required',
             'new_password' => 'required|confirmed',
-            'old_password' => 'required'
+
         ]);
 
         if (!Hash::check($request->old_password, auth()->user()->password)) {
