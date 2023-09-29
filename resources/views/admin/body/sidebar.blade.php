@@ -8,7 +8,7 @@
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
         </div>
-     </div>
+    </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
 
@@ -19,23 +19,23 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
-      
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
-                <div class="menu-title">Application</div>
+                <div class="menu-title">Manage Team</div>
             </a>
             <ul>
-                <li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>Email</a>
+                <li> <a href="{{ route('all.team') }}"><i class='bx bx-radio-circle'></i>All Team</a>
                 </li>
-                <li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Chat Box</a>
+                <li> <a href="{{ route('add.team') }}"><i class='bx bx-radio-circle'></i>Add Team</a>
                 </li>
-               
+
             </ul>
         </li>
         <li class="menu-label">UI Elements</li>
-       
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -47,7 +47,7 @@
                 </li>
                 <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product Details</a>
                 </li>
-               
+
             </ul>
         </li>
         <li>
@@ -61,12 +61,12 @@
                 </li>
                 <li> <a href="component-accordions.html"><i class='bx bx-radio-circle'></i>Accordions</a>
                 </li>
-                
+
             </ul>
         </li>
-      
+
         <li class="menu-label">Others</li>
-       
+
         <li>
             <a href="https://themeforest.net/user/codervent" target="_blank">
                 <div class="parent-icon"><i class="bx bx-support"></i>
