@@ -27,7 +27,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
+    Route::get('/profile', [UserController::class, 'UserProfile'])->name('user.profile');
+    Route::post('/profile/upadte', [UserController::class, 'UserProfileUpdate'])->name('user.profile.update');
 });
 
 require __DIR__ . '/auth.php';
