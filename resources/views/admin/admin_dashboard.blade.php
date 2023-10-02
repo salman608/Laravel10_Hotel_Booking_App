@@ -253,6 +253,8 @@
     <script src="{{ asset('backend/assets/js/index.js') }}"></script>
     <!--app JS-->
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/code.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
     <script>
         new PerfectScrollbar(".app-container")
     </script>
@@ -290,6 +292,9 @@
             $('#example').DataTable();
           } );
     </script>
+
+    {{-- sweet alert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Team</li>
+                    <li class="breadcrumb-item active" aria-current="page">Update Team</li>
                 </ol>
             </nav>
         </div>
@@ -27,32 +27,34 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <form id="myForm" action="{{ route('store.team') }}" method="post"
-                            enctype="multipart/form-data">
+                        <form action="{{ route('update.team') }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $item->id }}">
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Name</h6>
                                     </div>
-                                    <div class="form-group col-sm-9 text-secondary">
-                                        <input type="text" name="name" class="form-control" />
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" name="name" class="form-control" value="{{ $item->name }}" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Position</h6>
                                     </div>
-                                    <div class="form-group col-sm-9 text-secondary">
-                                        <input type="text" name="position" class="form-control" />
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" name="position" class="form-control"
+                                            value="{{ $item->position }}" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Facebook Url</h6>
                                     </div>
-                                    <div class="form-group col-sm-9 text-secondary">
-                                        <input type="text" name="facebook" class="form-control" />
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" name="facebook" class="form-control"
+                                            value="{{ $item->facebook }}" />
                                     </div>
                                 </div>
 
@@ -60,7 +62,7 @@
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Upload Photo</h6>
                                     </div>
-                                    <div class="form-group col-sm-9 text-secondary">
+                                    <div class="col-sm-9 text-secondary">
                                         <input class="form-control" name="image" type="file" id="image">
                                     </div>
                                 </div>
@@ -70,9 +72,8 @@
                                         <h6 class="mb-0"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <img id="showImage"
-                                            src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no_image.jpg') }}"
-                                            alt="admin" class=" p-1 bg-primary" width="110">
+                                        <img id="showImage" src="{{ asset($item->image) }}" alt="admin"
+                                            class=" p-1 bg-primary" width="110">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -90,59 +91,6 @@
         </div>
     </div>
 </div>
-
-{{-- Validation script --}}
-
-<script type="text/javascript">
-    $(document).ready(function (){
-        $('#myForm').validate({
-            rules: {
-                name: {
-                    required : true,
-                }, 
-                position: {
-                    required : true,
-                },
-                facebook: {
-                    required : true,
-                },
-                image: {
-                    required : true,
-                },
-                
-                
-            },
-            messages :{
-                name: {
-                    required : 'Please Enter Team name',
-                }, 
-                position: {
-                    required : 'Please Enter Position',
-                }, 
-                facebook: {
-                    required : 'Please Enter Facebook Url',
-                }, 
-                image: {
-                    required : 'Please Upload Image',
-                }, 
-                 
-
-            },
-            errorElement : 'span', 
-            errorPlacement: function (error,element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight : function(element, errorClass, validClass){
-                $(element).addClass('is-invalid');
-            },
-            unhighlight : function(element, errorClass, validClass){
-                $(element).removeClass('is-invalid');
-            },
-        });
-    });
-    
-</script>
 
 <script type="text/javascript">
     $(document).ready(function() {
