@@ -15,11 +15,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="ms-auto">
-            <div class="btn-group">
-                <a type="button" href="{{ route('all.team') }}" class="btn btn-primary px-5 radius-30">All Team</a>
-            </div>
-        </div>
+
     </div>
     <!--end breadcrumb-->
     <div class="container">
@@ -84,9 +80,8 @@
                                         <h6 class="mb-0"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <img id="showImage"
-                                            src="{{ !empty($bookarea->image) ? url('upload/bookarea/' . $bookarea->image) : url('upload/no_image.jpg') }}"
-                                            alt="admin" class=" p-1 bg-primary" width="110">
+                                        <img id="showImage" src="{{ asset($bookarea->image) }}" alt="admin"
+                                            class=" p-1 bg-primary" width="110">
                                     </div>
                                 </div>
                                 <div class="row">

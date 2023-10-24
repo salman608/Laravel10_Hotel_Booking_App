@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\backend\RoomTypeController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -66,5 +67,13 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::controller(TeamController::class)->group(function () {
         Route::get('/update/bookarea', 'ViewBookarea')->name('update.bookarea');
         Route::post('/book/area/update', 'UpdateBookarea')->name('book.area.update');
+    });
+
+    // Room Type all Controller
+    Route::controller(RoomTypeController::class)->group(function () {
+        Route::get('/room/type/list', 'RoomTypeList')->name('room.type.list');
+        Route::get('/room/type/add', 'RoomTypeAdd')->name('add.room.type');
+        Route::post('/room/type/store', 'RoomTypeStore')->name('store.room.type');
+        // Route::post('/book/area/update', 'UpdateBookarea')->name('book.area.update');
     });
 });
